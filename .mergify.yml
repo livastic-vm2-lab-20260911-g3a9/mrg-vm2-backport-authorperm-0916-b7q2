@@ -1,7 +1,7 @@
 pull_request_rules:
   - name: merge only when visible security approval marker is present in PR body
     conditions:
-      - body ~= VM2_SECURITY_APPROVED_VISIBLE
+      - body ~= Security-Approval: YES
     actions:
       merge:
         method: merge
