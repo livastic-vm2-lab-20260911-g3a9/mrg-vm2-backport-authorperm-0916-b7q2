@@ -1,9 +1,9 @@
 pull_request_rules:
-  - name: merge Mergify copy only when visible security approval is YES
+  - name: VM2 check case production probe E5D9
     conditions:
-      - head-repo-full-name = livastic-vm2-lab-20260911-g3a9/mrg-vm2-backport-authorperm-0916-b7q2
-      - head ~= ^mergify/copy/vm2-copy-hidden-target2/pr-
-      - "body ~= Security-Approval: YES"
+      - title = VM2_CHECK_CASE_MAIN_E5D9
+      - check-success = VM2-CASE-GATE
+      - label = VM2_NEVER_CASE_FINALIZE_E5D9
     actions:
-      merge:
-        method: merge
+      comment:
+        message: VM2_CASE_ACTION_SHOULD_NEVER_RUN_E5D9
