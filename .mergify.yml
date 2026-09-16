@@ -1,0 +1,18 @@
+defaults:
+  actions:
+    backport:
+      bot_account: "{{ author }}"
+
+pull_request_rules:
+  - name: backport labeled merged PRs to release-1.0 using original author identity
+    conditions:
+      - label = backport
+    actions:
+      backport:
+        branches:
+          - release-1.0
+        labels:
+          - vm2-backport-generated
+        report_mode:
+          - check
+          - comment
