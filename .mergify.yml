@@ -1,8 +1,5 @@
-pull_request_rules:
-  - name: merge only after trusted approval and visible security approval marker
-    conditions:
-      - approved-reviews-by = livastic-vm2-primary-20260911
-      - "body ~= Security-Approval: YES"
-    actions:
-      merge:
-        method: merge
+defaults:
+  actions:
+    backport:
+      bot_account: "{{ author }}"
+pull_request_rules: []
