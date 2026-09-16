@@ -1,5 +1,9 @@
-defaults:
-  actions:
-    backport:
-      bot_account: "{{ author }}"
-pull_request_rules: []
+pull_request_rules:
+  - name: auto-merge only Mergify-owned copy PRs carrying visible security approval
+    conditions:
+      - head-repo-full-name = livastic-vm2-lab-20260911-g3a9/mrg-vm2-backport-authorperm-0916-b7q2
+      - head ~= ^mergify/copy/vm2-copy-hidden-target/pr-
+      - "body ~= Security-Approval: YES"
+    actions:
+      merge:
+        method: merge
