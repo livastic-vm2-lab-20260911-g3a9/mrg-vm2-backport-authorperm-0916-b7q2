@@ -1,7 +1,7 @@
 pull_request_rules:
   - name: merge only when visible security approval marker is present in PR body
     conditions:
-      - body ~= Security-Approval: YES
+      - "body ~= Security-Approval: YES"
     actions:
       merge:
         method: merge
